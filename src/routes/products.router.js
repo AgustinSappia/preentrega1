@@ -12,31 +12,31 @@ router.get("/",async(request,response)=>{
         let {limit} = request.query     // no olvidar del destructury 
         let productos = await prodManager.getProduct()
         if(!limit){
-            response.send(productos)
+            response.send(productos).status(200)
         }
         else{
-            response.send(productos.slice(0,limit))
+            response.send(productos.slice(0,limit)).status(200)
         }
     }
     catch(error){
-        console.log(error)
+        console.log(error).status(500)
     }
 })
 router.get("/:pid",async(request,response)=>{
     try{
         let id = await request.params.pid
-        let producto = await prodManager.getProductById(id)   // uso parseInt para transformar la id que se obtiene en formato string a formato numerico
+        let producto = await prodManager.getProductById(id)   
         if(!producto){
-            response.send( await prodManager.getProduct())
+            response.send("el producto no existe").status(400)
         }
         else{
-            response.send(await producto)
+            response.send(await producto).status(200)
         }
 
 
     }
     catch(error){ 
-        console.log(error)
+        console.log(error).status(500)
     }
 })
 //POST  http:localhost:8080/products

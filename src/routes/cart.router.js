@@ -13,7 +13,7 @@ try{
     res.send(await cartManager.createCart())
 }
 catch(error){
-    res.send("todo mal")
+    res.send("todo mal").status(500)
 }
 })
 
@@ -22,10 +22,10 @@ router.post("/:cid/products/:pid",async(req,res)=>{
     let producto = await productManager.getProductById(pid);
     let carrito = await cartManager.searchCartById(cid);
     if(carrito==false || producto== false){
-        res.send("ingrese datos validos")
+        res.send("ingrese datos validos").status(400)
     }
     else{
-        res.send(await cartManager.addProduct(producto,carrito))
+        res.send(await cartManager.addProduct(producto,carrito)).status(200)
     }
 
     
@@ -36,16 +36,13 @@ router.post("/:cid/products/:pid",async(req,res)=>{
 router.get("/:cid",async(req,res)=>{
     try{
     let {cid} = req.params
-    res.send(await cartManager.searchCartById(cid))
+    res.send(await cartManager.searchCartById(cid)).status(200)
 
     }
     catch(error){
-    res.send(error)
+    res.send(error).status(500)
     }
 })
 
-
-
-router
 
 module.exports = router
