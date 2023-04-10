@@ -7,11 +7,11 @@ class CartManager{
         this.products= products
         this.carts = carts
 }
-generarIdUnico = () => { 
+genId = () => { 
     return Math.random().toString(30).substring(2);           
 } 
 
-async obtenerCarritos(){
+async GetCarts(){
     try{
         const data = await fs.promises.readFile(this.path, 'utf-8').catch(()=>{
             fs.promises.writeFile(this.path,"[]");
@@ -22,12 +22,12 @@ async obtenerCarritos(){
      }
 }
 
-async crearCarrito(products){
+async createCart(products){
     try{
-        let carts = await this.obtenerCarritos()
+        let carts = await this.GetCarts()
         carts.push({
            products:products||this.products,
-           id: this.generarIdUnico()
+           id: this.genId()
         })
         let cartsJson = JSON.stringify(carts,"utf-8","\t")
         await fs.promises.writeFile(this.path,cartsJson)
@@ -40,7 +40,7 @@ async crearCarrito(products){
 
 async searchCartById(id){
     try{
-        let carritos = await this.obtenerCarritos()
+        let carritos = await this.GetCarts()
         let carrito = await carritos.find(cart=> cart.id == id)
         if(!carrito) return false
         return carrito
@@ -52,7 +52,7 @@ async searchCartById(id){
 }
 
 async addProduct(product,cart){
-    let carts = await this.obtenerCarritos()
+    let carts = await this.GetCarts()
     let index = carts.findIndex(carrito => carrito.id === cart.id)
     let carritoOriginal =  carts[index];
     let productosCarrito = carritoOriginal.products

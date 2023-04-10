@@ -10,7 +10,7 @@ const productManager = new ProductManager("./data/products.json")
 
 router.post("/",async(req,res)=>{
 try{
-    res.send(await cartManager.crearCarrito())
+    res.send(await cartManager.createCart())
 }
 catch(error){
     res.send("todo mal")
