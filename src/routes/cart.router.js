@@ -20,7 +20,7 @@ catch(error){
 router.post("/:cid/products/:pid",async(req,res)=>{
     let{cid,pid} = req.params 
     let producto = await productManager.getProductById(pid);
-    let carrito = await cartManager.buscarCartPorId(cid);
+    let carrito = await cartManager.searchCartById(cid);
     if(carrito==false || producto== false){
         res.send("ingrese datos validos")
     }
@@ -36,7 +36,7 @@ router.post("/:cid/products/:pid",async(req,res)=>{
 router.get("/:cid",async(req,res)=>{
     try{
     let {cid} = req.params
-    res.send(await cartManager.buscarCartPorId(cid))
+    res.send(await cartManager.searchCartById(cid))
 
     }
     catch(error){

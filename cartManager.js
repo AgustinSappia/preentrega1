@@ -38,7 +38,7 @@ async crearCarrito(products){
     }
 }
 
-async buscarCartPorId(id){
+async searchCartById(id){
     try{
         let carritos = await this.obtenerCarritos()
         let carrito = await carritos.find(cart=> cart.id == id)
@@ -63,7 +63,6 @@ async addProduct(product,cart){
         productosCarrito[indexProducto].cantidad++
     }
     else{
-            console.log("exite")
         productosCarrito.push({id:product.id,cantidad:1})
     }
 

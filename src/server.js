@@ -14,7 +14,6 @@ app.use(express.urlencoded({extended: true})) //permite recibir url complejas en
 
 app.get("/",async(request,response)=>{
     try{
-        
         response.send("buenas")
     }
     catch(error){
@@ -23,7 +22,7 @@ app.get("/",async(request,response)=>{
 })
 
 
-app.use("/products",routerProducts)
+app.use("/api/products",routerProducts)
 app.use("/api/cart",routerCart)
 
 
