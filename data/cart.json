@@ -1,0 +1,39 @@
+[
+	{
+		"products": [],
+		"id": "f82boj17kag"
+	},
+	{
+		"products": [],
+		"id": "ia0gqh6kiqr"
+	},
+	{
+		"products": [],
+		"id": "d2llsocgrmh"
+	},
+	{
+		"products": [
+			{
+				"id": "1",
+				"cantidad": 13
+			},
+			{
+				"id": "3",
+				"cantidad": 7
+			},
+			{
+				"id": "2",
+				"cantidad": 6
+			}
+		],
+		"id": "88c22qiamhq"
+	},
+	{
+		"products": [],
+		"id": "r1d743ijtgi"
+	},
+	{
+		"products": [],
+		"id": "mp1ehm51ctc"
+	}
+]
