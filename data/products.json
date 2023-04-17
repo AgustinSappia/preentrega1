@@ -6,7 +6,7 @@
     "thumbnail": "sin imagen",
     "code": "001",
     "stock": 599,
-    "id":"0"
+    "id": "0"
   },
   {
     "title": "producto 2",
@@ -97,6 +97,16 @@
     "code": "46",
     "stock": 599,
     "id": "m8stfb2st8e",
+    "status": true
+  },
+  {
+    "title": "asd",
+    "description": "asd",
+    "price": "123",
+    "thumbnail": "asd",
+    "code": "12332",
+    "stock": "231",
+    "id": "e4dff3om447",
     "status": true
   }
 ]
