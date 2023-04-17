@@ -45,13 +45,13 @@ app.get("/",async(request,response)=>{
 })
 
 socketServer.on("connection", socket =>{
-    console.log("nuevo wachin conectado")
+    console.log("nuevo usuario conectado")
 })
 socketProduct(socketServer)
 
-app.use("/api/products",routerProducts)
-app.use("/api/cart",routerCart)
-app.use("/api/test",pruebasRouter)      //router para hacer diferentes pruebas
+app.use("/products",routerProducts)
+app.use("/cart",routerCart)
+app.use("/test",pruebasRouter)      //router para hacer diferentes pruebas
 
 
 
